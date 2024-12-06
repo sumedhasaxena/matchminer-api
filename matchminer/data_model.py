@@ -1516,12 +1516,8 @@ yaml_genomic_schema = {
         'type': 'string',
         'required': False,
         'allowed': ['In_Frame_Del', 'In_Frame_Ins', 'Missense_Mutation', 'Nonsense_Mutation', 'Nonstop_Mutation',
-                    'Del_Ins', 'Frameshift', 'Frame_Shift_Del','Frame_Shift_Ins', 'Frameshift_mutation',
-                    'Inframe_Indel', 'Initiator_Codon', 'Intron', 'intron', 'Intron_mutation',
-                    'Missense and Splice_Region', 'RNA', 'Silent', 'Splice_Acceptor', 'Splice_Donor', 'Splice_Region',
-                    'Splice_Site', 'Splice_Lost', 'Translation_Start_Site', 'coding_sequence', 'intergenic_variant',
-                    'protein_altering', 'splice site_mutation', 'stop_retained', 'synonymous', "3'UTR", "3_prime_UTR"
-                    "5'Flank", "5'UTR", "5'UTR_mutation", "5_prime_UTR", "!Missense_Mutation"]
+                    'Frame_Shift_Del','Frame_Shift_Ins','Initiator_Codon', 'Intron', 'RNA', 'Silent', 'Splice_Acceptor', 'Splice_Donor', 'Splice_Region',
+                    'Splice_Site', 'Splice_Lost', 'Translation_Start_Site', "3'UTR", "5'Flank", "5'UTR", "!Missense_Mutation"]
     },
     'fusion_partner_hugo_symbol':{
         'type': 'string',
