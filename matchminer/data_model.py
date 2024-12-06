@@ -365,6 +365,21 @@ clinical_schema = {
             },
         },
         'readonly': True
+    },
+    'ER_STATUS': {
+        'type': 'string',
+        'required': False,
+        'allowed': ['Positive', 'Negative', 'Unknown']
+    },
+    'PR_STATUS': {
+        'type': 'string',
+        'required': False,
+        'allowed': ['Positive', 'Negative', 'Unknown']
+    },
+    'HER2_STATUS': {
+        'type': 'string',
+        'required': False,
+        'allowed': ['Positive', 'Negative', 'Unknown']
     }
 }
 
