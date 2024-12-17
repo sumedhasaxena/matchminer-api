@@ -25,7 +25,7 @@ services:
   mm-mongo:
     container_name: mm-mongo
     restart: "no"
-    image: mongo
+    image: mongo:6.0-focal
     ports:
       - "27017:27017"
     networks:
@@ -40,8 +40,8 @@ services:
     volumes:
       - ./elasticsearch/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
       - ./elasticsearch/synonyms.txt:/usr/share/elasticsearch/config/synonyms.txt
-      - ./elasticsearch/backup:/backup
-      - ./elasticsearch/es_data:/usr/share/elasticsearch/data
+      # - ./elasticsearch/backup:/backup
+      # - ./elasticsearch/es_data:/usr/share/elasticsearch/data
     networks:
       - mm-dev-network
 
