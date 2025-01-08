@@ -94,6 +94,7 @@ if file_path is not None:
 if EMAIL_ACTIVE_PROTECTED == "True":
     EMAIL_ACTIVE_PROTECTED = True
 
+
 # modify variables if necessary.
 if NO_AUTH != "False":
     NO_AUTH = True
@@ -107,6 +108,7 @@ else:
 
 logging.warning("settings: %s" % MM_SETTINGS)
 logging.warning("settings: %s" % MONGO_URI)
+logging.warning("settings - NO_AUTH: %s" % NO_AUTH)
 
 match_status_mapping = {
     'New': 0,
