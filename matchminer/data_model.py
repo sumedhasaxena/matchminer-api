@@ -380,6 +380,11 @@ clinical_schema = {
         'type': 'string',
         'required': False,
         'allowed': ['Positive', 'Negative', 'Unknown']
+    },
+    'PDL1_STATUS': {
+        'type': 'string',
+        'required': False,
+        'allowed': ['High','Low']
     }
 }
 
@@ -1457,6 +1462,11 @@ yaml_clinical_schema = {
         'type': 'string',
         'required': False,
         'allowed': ['Positive', 'Negative', 'Unknown']
+    },
+    'pdl1_status': {
+        'type': 'string',
+        'required': False,
+        'allowed': ['High','Low']
     },
     "disease_status": {
          "type": "list",
