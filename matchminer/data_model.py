@@ -385,7 +385,12 @@ clinical_schema = {
         'type': 'string',
         'required': False,
         'allowed': ['High','Low']
-    }
+    },
+    'MUSCLE_INVASION_STATUS': {
+        'type': 'string',
+        'required': False,
+        'allowed': ['Muscle Invasive','Non Muscle Invasive']
+    },
 }
 
 val_stderr = {
@@ -1448,6 +1453,7 @@ yaml_clinical_schema = {
     'age_numerical': {
         'type': 'string',
     },
+    # Start: Applicable to breast cancer
     'er_status': {
         'type': 'string',
         'required': False,
@@ -1463,10 +1469,16 @@ yaml_clinical_schema = {
         'required': False,
         'allowed': ['Positive', 'Negative', 'Unknown']
     },
+    # End: Applicable to breast cancer
     'pdl1_status': {
         'type': 'string',
         'required': False,
         'allowed': ['High','Low']
+    },
+    'muscle_invasion_status': {
+        'type': 'string',
+        'required': False,
+        'allowed': ['Muscle Invasive','Non Muscle Invasive']
     },
     "disease_status": {
          "type": "list",
