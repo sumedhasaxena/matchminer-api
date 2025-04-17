@@ -30,14 +30,24 @@
           "sample_value": "tmb_range_to_query"
         },
         "HER2_STATUS": {
-          "ignore": true
+          "sample_key": "HER2_STATUS",
+          "sample_value": "nomap"
         },
+
         "PR_STATUS": {
-          "ignore": true
+          "sample_key": "PR_STATUS",
+          "sample_value": "nomap"
         },
+
         "ER_STATUS": {
-          "ignore": true
+          "sample_key": "ER_STATUS",
+          "sample_value": "nomap"
         },
+
+        "PDL1_STATUS":{
+          "sample_key": "PDL1_STATUS",
+          "sample_value": "nomap"
+        },    
         "DISEASE_STATUS": {
           "ignore": true
         }
@@ -192,7 +202,10 @@
       "ONCOTREE_PRIMARY_DIAGNOSIS_NAME",
       "TUMOR_MUTATIONAL_BURDEN_PER_MEGABASE",
       "VITAL_STATUS",
-      "BIRTH_DATE_INT"
+      "BIRTH_DATE_INT",
+      "HER2_STATUS",
+      "PR_STATUS",
+      "ER_STATUS"
     ],
     "trial_match": [
       "hash",
@@ -205,8 +218,13 @@
     ]
   },
   "valid_clinical_reasons": [
-    [
-      "TUMOR_MUTATIONAL_BURDEN_PER_MEGABASE"
-    ]
+    "BIRTH_DATE_INT",
+    "ONCOTREE_PRIMARY_DIAGNOSIS_NAME",
+    "GENDER",
+    "TUMOR_MUTATIONAL_BURDEN_PER_MEGABASE",
+    "HER2_STATUS",
+    "PR_STATUS",
+    "ER_STATUS",
+    "PDL1_STATUS"
   ]
 }
