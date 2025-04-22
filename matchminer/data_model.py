@@ -391,6 +391,11 @@ clinical_schema = {
         'required': False,
         'allowed': ['Muscle Invasive','Non Muscle Invasive']
     },
+    'MGMT_PROMOTER_STATUS':{
+        'type': 'string',
+        'required': False,
+        'allowed': ['Methylated','Unmethylated']
+    }
 }
 
 val_stderr = {
@@ -1513,6 +1518,11 @@ yaml_clinical_schema = {
     },
     'tmb_numerical': {
         'type': 'string',
+    },
+    'mgmt_promoter_status':{
+        'type': 'string',
+        'required': False,
+        'allowed': ['Methylated','Unmethylated']
     }
 }
 
