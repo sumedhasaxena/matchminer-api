@@ -1563,7 +1563,7 @@ yaml_genomic_schema = {
         'type': 'string',
         'required': False,
         'allowed': ['In_Frame_Del', 'In_Frame_Ins', 'Missense_Mutation', 'Nonsense_Mutation', 'Nonstop_Mutation',
-                    'Frame_Shift_Del','Frame_Shift_Ins','Initiator_Codon', 'Intron', 'RNA', 'Silent', 'Splice_Acceptor', 'Splice_Donor', 'Splice_Region',
+                    'Frame_Shift_Del','Frame_Shift_Ins','Intron', 'Silent', 'Splice_Acceptor', 'Splice_Donor', 'Splice_Region',
                     'Splice_Site', 'Splice_Lost', 'Translation_Start_Site', "3'UTR", "5'Flank", "5'UTR", "!Missense_Mutation"]
     },
     'fusion_partner_hugo_symbol':{
