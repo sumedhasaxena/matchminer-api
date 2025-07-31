@@ -719,17 +719,17 @@ class ParseMatchTree:
         # iterate through the graph
         for node_id in list(nx.dfs_postorder_nodes(self.g, source=1)):
             node = self.g.nodes[node_id]
-            if node['type'] == 'genomic':
-                if 'mmr_status' in node['value']:
-                    mmr.append(node['value']['mmr_status'])
-                if 'ms_status' in node['value']:
-                    ms.append(node['value']['ms_status'])
+            if node['type'] == 'genomic':                
                 for sig in list(sig_mapping.keys()):
                     if sig in node['value']:
                         sigs.append(sig_mapping[sig])
             elif node['type'] == 'clinical':
                 if 'tmb_numerical' in node['value']:
                     sigs.append('Tumor Mutational Burden')
+                if 'mmr_status' in node['value']:
+                    mmr.append(node['value']['mmr_status'])
+                if 'ms_status' in node['value']:
+                    ms.append(node['value']['ms_status'])
 
         return mmr, ms, sigs
 

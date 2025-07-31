@@ -687,17 +687,7 @@ genomic_schema = {
         'type': 'string',
         'allowed': ['actionable', 'investigational']
     },
-    'CNV_ROW_ID': {'type': 'integer'},
-    'MMR_STATUS': {
-        'type': 'string',
-        'nullable': True,
-        'allowed': [
-            'Cannot assess',
-            'Indeterminate (see note)',
-            'Proficient (MMR-P / MSS)',
-            'Deficient (MMR-D / MSI-H)'
-        ]
-    },
+    'CNV_ROW_ID': {'type': 'integer'},    
     'TABACCO_STATUS': {'type': 'string', 'allowed': ['Yes', 'No', 'Cannot assess', 'insufficient variants'],
                        'nullable': True},
     'TEMOZOLOMIDE_STATUS': {'type': 'string', 'allowed': ['Yes', 'No', 'Cannot assess', 'insufficient variants'],
@@ -932,6 +922,10 @@ parent_schema = {
         'type': 'integer',
         'required': True,
         'unique': True
+    },
+    'protocol_ids':{
+        'type': 'list',
+        'required': False
     },
     'principal_investigator': {
         'type': 'string',
@@ -1523,6 +1517,16 @@ yaml_clinical_schema = {
         'type': 'string',
         'required': False,
         'allowed': ['Methylated','Unmethylated']
+    },
+    'mmr_status': {
+        'type': 'string',
+        'required': False,
+        'allowed': ['MMR-Proficient', 'MMR-Deficient']
+    },
+    'ms_status': {
+        'type': 'string',
+        'required': False,
+        'allowed': ['MSI-H', 'MSI-L', 'MSS']
     }
 }
 
@@ -1573,17 +1577,7 @@ yaml_genomic_schema = {
     'display_name': {
         'type': 'string',
         'required': False
-    },
-    'mmr_status': {
-        'type': 'string',
-        'required': False,
-        'allowed': ['MMR-Proficient', 'MMR-Deficient']
-    },
-    'ms_status': {
-        'type': 'string',
-        'required': False,
-        'allowed': ['MSI-H', 'MSI-L', 'MSS']
-    },
+    },    
     'pole_signature': {
         'type': 'string',
         'required': False,
