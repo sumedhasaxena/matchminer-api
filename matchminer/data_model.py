@@ -914,6 +914,14 @@ parent_schema = {
         'type': 'string',
         'default': ''
     },
+    'study_start_date': {
+        'type': 'string',
+        'default': ''
+    },
+    'study_completion_date': {
+        'type': 'string',
+        'default': ''
+    },
     'protocol_no': {
         'type': 'string',
         'required': True
