@@ -26,6 +26,8 @@ services:
     container_name: mm-mongo
     restart: "no"
     image: mongo:6.0-focal
+    volumes:
+    - matchminer_data:/data/db
     ports:
       - "27017:27017"
     networks:
@@ -44,7 +46,8 @@ services:
       # - ./elasticsearch/es_data:/usr/share/elasticsearch/data
     networks:
       - mm-dev-network
-
+volumes:
+  matchminer_data:
 networks:
   mm-dev-network:
     # tell docker-compose to create the network
