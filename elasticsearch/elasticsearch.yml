@@ -7,3 +7,8 @@ network.host: 0.0.0.0
 #path.repo: /backup
 indices.query.bool.max_clause_count: 5120
 xpack.security.enabled: false # set to true for production
+cluster.routing.allocation.disk.watermark.low: 90%
+cluster.routing.allocation.disk.watermark.high: 95%
+cluster.routing.allocation.disk.watermark.flood_stage: 97%
+cluster.routing.allocation.same_shard.host: true
+index.number_of_replicas: 0

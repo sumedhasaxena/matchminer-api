@@ -110,7 +110,14 @@ def remove_trial_from_elasticsearch_by_es_id(es_id):
 
 def create_elasticsearch_index():
     logging.info("create_elasticsearch_index")
-    get_es_client().indices.create(index=ES_INDEX)
+    get_es_client().indices.create(index=ES_INDEX,
+    body={
+        'settings': {
+            'number_of_shards': 1,
+            'number_of_replicas': 0 , # This overrides any template/defaults
+            'refresh_interval': '30s' # Reduce indexing overhead from teh default value of 1 second
+        }
+    })
     time.sleep(1)
     return {"created elasticsearch index": True}
 
@@ -181,7 +188,7 @@ def reset_elasticsearch():
     logging.info("reset_elasticsearch")
     logging.info(ES_URI)
     logging.info(ES_USER)
-    logging.info(ES_PASSWORD)
+   
     return [delete_elasticsearch_index(),
             create_elasticsearch_index(),
             close_elasticsearch_index(),
