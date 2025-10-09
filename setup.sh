@@ -66,5 +66,5 @@ echo "*****************"
 echo "STARTING API"
 echo "*****************"
 docker-compose build mm-api
-docker-compose up mm-api
+docker-compose up -d mm-api
 echo "Go to: http://localhost:5000"
