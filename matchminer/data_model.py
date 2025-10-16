@@ -916,12 +916,13 @@ parent_schema = {
     },
     'study_start_date': {
         'type': 'string',
-        'default': '',
+        'default': None,
         'nullable': True
     },
     'study_completion_date': {
         'type': 'string',
-        'default': ''
+        'default': None,
+        'nullable': True
     },
     'protocol_no': {
         'type': 'string',
