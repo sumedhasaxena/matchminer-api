@@ -916,7 +916,8 @@ parent_schema = {
     },
     'study_start_date': {
         'type': 'string',
-        'default': ''
+        'default': '',
+        'nullable': True
     },
     'study_completion_date': {
         'type': 'string',
