@@ -1466,17 +1466,17 @@ yaml_clinical_schema = {
     'er_status': {
         'type': 'string',
         'required': False,
-        'allowed': ['Positive', 'Negative', 'Unknown']
+        'allowed': ['Positive', 'Negative', 'Unknown', '!Positive','!Negative']
     },
     'pr_status': {
         'type': 'string',
         'required': False,
-        'allowed': ['Positive', 'Negative', 'Unknown']
+        'allowed': ['Positive', 'Negative', 'Unknown', '!Positive','!Negative']
     },
     'her2_status': {
         'type': 'string',
         'required': False,
-        'allowed': ['Positive', 'Negative', 'Unknown']
+        'allowed': ['Positive', 'Negative', 'Unknown','!Positive','!Negative']
     },
     # End: Applicable to breast cancer
     'pdl1_status': {
@@ -1531,12 +1531,12 @@ yaml_clinical_schema = {
     'mmr_status': {
         'type': 'string',
         'required': False,
-        'allowed': ['MMR-Proficient', 'MMR-Deficient']
+        'allowed': ['MMR-Proficient', 'MMR-Deficient', '!MMR-Proficient', '!MMR-Deficient']
     },
     'ms_status': {
         'type': 'string',
         'required': False,
-        'allowed': ['MSI-H', 'MSI-L', 'MSS']
+        'allowed': ['MSI-H', 'MSI-L', 'MSS', '!MSI-H', '!MSI-L']
     }
 }
 
