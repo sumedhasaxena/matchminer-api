@@ -1552,7 +1552,7 @@ yaml_genomic_schema = {
     'variant_category': {
         'type': 'string',
         'allowed': ['Mutation', 'Copy Number Variation', 'Structural Variation', 'Any Variation',
-                    '!Mutation', '!Copy Number Variation', '!Structural Variation']
+                    '!Mutation', '!Copy Number Variation', '!Structural Variation', '!Any Variation']
     },
     'wildtype': {
         'type': 'boolean',
