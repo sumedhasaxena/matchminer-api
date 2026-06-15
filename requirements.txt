@@ -76,7 +76,7 @@ markupsafe==2.0.1
     #   jinja2
 
 #-e ./matchengine-V2
-matchengine-v2 @ git+https://github.com/sumedhasaxena/matchengine-V2.git@b9e9c7474ebdb8511abbfeaa3398ac0f757e1bbb
+matchengine-v2 @ git+https://github.com/sumedhasaxena/matchengine-V2.git@4089fb3db224fc73f77f0332cab02762f58fe5a6
     # via -r requirements.in
 mattermostdriver==6.2.0
     # via -r requirements.in
