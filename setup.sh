@@ -3,10 +3,10 @@
 # Set up a local development mongo/mongo-connector/elasticsearch environment.
 set -e
 
-case "$(docker-compose version)" in
-  *docker-compose\ version\ 1*)
-    # docker-compose exec sometimes breaks in v1
-    echo "Requires docker-compose version 2 or greater."
+case "$(docker compose version)" in
+  *"docker compose version\ 1"*)
+    # docker compose exec sometimes breaks in v1
+    echo "Requires docker compose version 2 or greater."
     exit 1
     ;;
 esac
@@ -14,7 +14,7 @@ esac
 echo "*****************"
 echo "STARTING DATABASE SERVICES"
 echo "*****************"
-docker-compose up -d mm-mongo mm-elastic
+docker compose up -d mm-mongo mm-elastic
 echo "DONE."
 echo ""
 
@@ -24,7 +24,7 @@ echo "*****************"
 sleep 5
 
 echo "Add dev user to database to bypass authentication"
-docker-compose exec mm-mongo mongosh matchminer --eval 'db.user.replaceOne({
+docker compose exec mm-mongo mongosh matchminer --eval 'db.user.replaceOne({
   "_id": ObjectId("577cf6ef2b9920002cef0337")
 }, {
   "_id": ObjectId("577cf6ef2b9920002cef0337"),
@@ -55,16 +55,16 @@ echo "*****************"
 # naively wait for elasticsearch to start up
 sleep 20
 # run script to configure indexes, synonyms, etc.
-docker-compose build mm-api
+docker compose build mm-api
 echo "Setup elasticsearch settings, mappings"
 
-docker-compose run --rm mm-api python pymm_run.py reset-elasticsearch
+docker compose run --rm mm-api python pymm_run.py reset-elasticsearch
 echo "DONE."
 echo ""
 
 echo "*****************"
 echo "STARTING API"
 echo "*****************"
-docker-compose build mm-api
-docker-compose up -d mm-api
+docker compose build mm-api
+docker compose up -d mm-api
 echo "Go to: http://localhost:5000"

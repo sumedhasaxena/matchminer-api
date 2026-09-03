@@ -56,12 +56,26 @@ class Summary:
             self.genes.extend(wt_genes)
             self.nonsynonymous_wt_genes = wt_genes
 
+    @staticmethod
+    def _hr_status_symbol(status):
+        """Map hormone receptor status to a tumor-type badge suffix.
+
+        Schema allows Positive/Negative/Unknown and their CTML negations
+        (!Positive, !Negative). Unknown and any other value are omitted.
+        """
+        hrs_map = {
+            'Positive': '+',
+            'Negative': '-',
+            '!Positive': '!+',
+            '!Negative': '!-'
+        }
+        return hrs_map.get(status)
+
     def _get_tumor_types(self):
         """
         Prepends hormone receptor status to the tumor types
         """
 
-        hrs_map = {'Positive': '+', 'Negative': '-'}
         for n in self.trial_tree.nodes():
             # look for multi-level nodes (right now its only match).
             if 'match_tree' in self.trial_tree.nodes[n]:
@@ -79,22 +93,25 @@ class Summary:
                             if node['oncotree_primary_diagnosis'][0] != '!':
 
                                 badge = node['oncotree_primary_diagnosis']
-                                if 'er_status' in node and node['er_status'] != 'Unknown':
+                                er_symbol = self._hr_status_symbol(node.get('er_status'))
+                                if er_symbol:
                                     er = True
-                                    badge += ' ER%s' % hrs_map[node['er_status']]
+                                    badge += ' ER%s' % er_symbol
 
-                                if 'pr_status' in node and node['pr_status'] != 'Unknown':
+                                pr_symbol = self._hr_status_symbol(node.get('pr_status'))
+                                if pr_symbol:
                                     pr = True
                                     if er:
-                                        badge += '/PR%s' % hrs_map[node['pr_status']]
+                                        badge += '/PR%s' % pr_symbol
                                     else:
-                                        badge += ' PR%s' % hrs_map[node['pr_status']]
+                                        badge += ' PR%s' % pr_symbol
 
-                                if 'her2_status' in node and node['her2_status'] != 'Unknown':
+                                her_symbol = self._hr_status_symbol(node.get('her2_status'))
+                                if her_symbol:
                                     if not er and not pr:
-                                        badge += ' HER2%s' % hrs_map[node['her2_status']]
+                                        badge += ' HER2%s' % her_symbol
                                     else:
-                                        badge += '/HER2%s' % hrs_map[node['her2_status']]
+                                        badge += '/HER2%s' % her_symbol
 
                                 self.tumor_types.append(badge)
 

@@ -162,6 +162,47 @@ class TestTrialValidation(TrialValidation):
                                   'hormone receptor status and wildtype hugo symbol functionality can be' \
                                   'adequately tested.'
 
+    def test_negated_hormone_receptor_status(self):
+        """CTML '!Positive' / '!Negative' must not 500 while building _summary."""
+        trial = {
+            'protocol_no': '00-neg-hr',
+            'short_title': 'Negated HR status',
+            'principal_investigator': 'PI',
+            'age': 'Adults',
+            'phase': 'I',
+            'nct_id': 'NCT00000000',
+            'cancer_center_accrual_goal_upper': 0,
+            'status': 'Open to Accrual',
+            'treatment_list': {
+                'step': [{
+                    'step_internal_id': 1,
+                    'step_code': '1',
+                    'step_type': 'Registration',
+                    'arm': [{
+                        'arm_code': 'A',
+                        'arm_internal_id': 0,
+                        'arm_description': 'desc',
+                        'arm_suspended': 'N',
+                        'dose_level': [],
+                        'match': [{
+                            'and': [{
+                                'clinical': {
+                                    'age_numerical': '>=12',
+                                    'her2_status': '!Positive',
+                                    'er_status': '!Positive',
+                                    'pr_status': '!Positive',
+                                    'oncotree_primary_diagnosis': '_SOLID_'
+                                }
+                            }]
+                        }]
+                    }]
+                }]
+            }
+        }
+        build_trial_elasticsearch_fields([trial])
+        assert '_summary' in trial
+        assert '_SOLID_ ER!+/PR!+/HER2!+' in trial['_summary']['tumor_types']
+
     def test_insert_data_clinical(self):
         result = {}
         data = {'age_numerical': '>=18', 'oncotree_primary_diagnosis': '!Ocular Melanoma'}

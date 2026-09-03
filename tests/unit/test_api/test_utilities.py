@@ -293,3 +293,11 @@ class TestUtilities(unittest.TestCase):
         summary._get_dfci_investigator({})
         resp = summary.dfci_investigator
         assert resp is None, resp
+
+    def test_hr_status_symbol(self):
+        assert Summary._hr_status_symbol('Positive') == '+'
+        assert Summary._hr_status_symbol('Negative') == '-'
+        assert Summary._hr_status_symbol('!Positive') == '!+'
+        assert Summary._hr_status_symbol('!Negative') == '!-'
+        assert Summary._hr_status_symbol('Unknown') is None
+        assert Summary._hr_status_symbol(None) is None
